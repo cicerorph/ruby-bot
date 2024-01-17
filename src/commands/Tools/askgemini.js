@@ -6,17 +6,17 @@ module.exports = {
         .setName('askgemini')
         .setDescription('Ask Gemini something!')
         .addStringOption(option =>
-    		option.setName('input')
-    			.setDescription('What do you want to ask?')
-          .setRequired(true)),
+            option.setName('input')
+                .setDescription('What do you want to ask?')
+                .setRequired(true)),
     /**
      * @param {Interaction} interaction 
      * @param {Client} client 
      */
     async execute(interaction, client) {
         // Parse input option
-        const asked = interaction.options.getString('input')
-      
+        const asked = interaction.options.getString('input');
+
         // Send initial response
         await interaction.reply({ content: 'Generating...', ephemeral: true });
 
@@ -29,8 +29,11 @@ module.exports = {
             // Extract the text from the response
             const generatedText = response.data.candidates[0].content.parts[0].text;
 
-            // Edit the original response with the generated text
-            await interaction.editReply(`${generatedText}`);
+            // Trim the text if it's more than 2000 characters
+            const trimmedText = generatedText.substring(0, 2000);
+
+            // Edit the original response with the trimmed text
+            await interaction.editReply(`${trimmedText}`);
         } catch (error) {
             console.error('Error making POST request:', error);
             await interaction.followUp('An error occurred while processing your request.');
