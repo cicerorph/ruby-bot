@@ -3,7 +3,7 @@ const { SlashCommandBuilder, Client, EmbedBuilder } = require('discord.js');
 module.exports = {
     data: new SlashCommandBuilder()
         .setName(`ping`)
-        .setDescription(`Veja a minha latencia.`),
+        .setDescription(`See my Latency.`),
     /**
      * @param {Interaction} interaction 
      * @param {Client} client 
