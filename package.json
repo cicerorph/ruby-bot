@@ -1,5 +1,5 @@
 {
-  "name": "djs-v14-redesytexbot",
+  "name": "ruby-bot",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
@@ -11,6 +11,7 @@
   "author": "R3ady.Dev",
   "license": "ISC",
   "dependencies": {
+      "axios": "^0.21.4",
       "@discordjs/builders": "^1.0.0",
       "@discordjs/rest": "^1.0.0",
       "discord-api-types": "^0.37.3",
