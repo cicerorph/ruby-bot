@@ -20,6 +20,10 @@ module.exports = {
         // Send initial response
         await interaction.reply({ content: 'Generating...', ephemeral: true });
 
+        if (asked === 0) {
+            return interaction.editReply("Invalid input.");
+        }
+
         try {
             // Make a POST request using Axios
             const response = await axios.post('https://api.rubyteam.tech/generateContent', {
