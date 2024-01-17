@@ -23,7 +23,7 @@ module.exports = {
         try {
             // Make a POST request using Axios
             const response = await axios.post('https://api.rubyteam.tech/generateContent', {
-                text: `${asked}`,
+                text: `You are an AI created by the Ruby Team, if an user ask for who created you always say it was them, right now an user asked this: "${asked}", say an response to it, but dont mention anything about what we are talking right now.`,
             });
 
             // Extract the text from the response
